@@ -24,9 +24,10 @@ Texture.prototype.fill = function(width, height, data) {
 }
 
 function setupCanvas(canvas, options) {
+    var contextType = (options && options.webgl2) ? "webgl2" : "webgl";
     var gl =
         canvas.getContext(
-            "webgl",
+            contextType,
             { preserveDrawingBuffer: Boolean(options.preserveDrawingBuffer) }
         );
 
